@@ -9,17 +9,12 @@ public class Player {
     elemento_multimediale[] elementi = new elemento_multimediale[5];
 
     for (int i = 0; i < elementi.length; i++) {
-      System.out.println("Inserisci il tipo di elemento multimediale (1 per Immagine, 2 per Video, 3 per Registrazione Audio):");
+      System.out.println("Inserisci il tipo di elemento multimediale (1 per Immagine, 2 per Video, 3 per Audio):");
       int tipo = input.nextInt();
       input.nextLine();
 
       System.out.println("Inserisci il titolo dell'elemento multimediale:");
       String titolo = input.nextLine();
-
-      System.out.println("Inserisci la durata dell'elemento multimediale:");
-      int durata = input.nextInt();
-      input.nextLine();
-
       switch (tipo) {
         case 1:
           System.out.println("Inserisci la luminosità dell'immagine:");
@@ -34,11 +29,15 @@ public class Player {
           int volume = input.nextInt();
           input.nextLine();
 
+          System.out.println("Inserisci la durata del video:");
+          int durataVideo = input.nextInt();
+          input.nextLine();
+          
           System.out.println("Inserisci la luminosità del video:");
           luminosita = input.nextInt();
           input.nextLine();
 
-          elementi[i] = new Video(titolo, durata, volume, luminosita);
+          elementi[i] = new Video(titolo, durataVideo, volume, luminosita);
           break;
 
         case 3:
@@ -46,7 +45,11 @@ public class Player {
           volume = input.nextInt();
           input.nextLine();
 
-          elementi[i] = new audio(titolo, durata, volume);
+          System.out.println("Inserisci la durata dell'audio:");
+          int durataAudio = input.nextInt();
+          input.nextLine();
+          
+          elementi[i] = new audio(titolo, durataAudio, volume);
           break;
 
         default:
